@@ -15,11 +15,7 @@
       theme: {
         extend: {
           colors: {
-            blue: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-            },
+            blue: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' },
             electric: '#2EB9F0',
             'electric-dim': '#1a9fd4',
           },
@@ -45,26 +41,19 @@
     }
 
     * { box-sizing: border-box; }
-
     html { background: var(--bg); }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
+    h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
 
-    h1, h2, h3, h4, h5 {
-      font-family: 'Syne', sans-serif;
-    }
-
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--electric); border-radius: 3px; }
 
-    /* ── Noise Overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -75,7 +64,6 @@
       opacity: 0.4;
     }
 
-    /* ── Glowing Orbs ── */
     .orb {
       position: absolute;
       border-radius: 50%;
@@ -90,7 +78,6 @@
       50% { transform: translateY(-40px) scale(1.05); }
     }
 
-    /* ── Grid Lines ── */
     .grid-bg {
       background-image:
         linear-gradient(rgba(46,185,240,0.04) 1px, transparent 1px),
@@ -116,14 +103,7 @@
       position: relative;
       overflow: hidden;
     }
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: white;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: white; opacity: 0; transition: opacity 0.2s; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--electric-glow), 0 8px 20px rgba(0,0,0,0.3); }
     .btn-primary:hover::after { opacity: 0.1; }
 
@@ -148,157 +128,61 @@
       overflow: hidden;
     }
     .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--electric), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
+      opacity: 0; transition: opacity 0.4s;
     }
     .service-card:hover { border-color: rgba(46,185,240,0.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--electric-glow); }
     .service-card:hover::before { opacity: 1; }
 
-    /* ── Portfolio ── */
-    .portfolio-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .portfolio-card:hover { border-color: rgba(46,185,240,0.5); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8,12,18,0.98) 0%, rgba(8,12,18,0.6) 50%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.4s;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-    }
-    .portfolio-card:hover .portfolio-overlay { opacity: 1; }
-
-    /* ── Glassmorphism Pricing ── */
     .glass-card {
       background: rgba(13,20,32,0.5);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(46,185,240,0.12);
       transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .glass-card:hover { border-color: rgba(46,185,240,0.35); transform: translateY(-6px); box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(46,185,240,0.08); }
-    .glass-card.featured {
-      border-color: rgba(46,185,240,0.4);
-      background: rgba(46,185,240,0.05);
-      box-shadow: 0 0 60px rgba(46,185,240,0.1);
-    }
+    .glass-card.featured { border-color: rgba(46,185,240,0.4); background: rgba(46,185,240,0.05); box-shadow: 0 0 60px rgba(46,185,240,0.1); }
     .glass-card.featured:hover { box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 80px rgba(46,185,240,0.2); }
 
-    /* ── Toggle ── */
-    .toggle-track {
-      background: rgba(46,185,240,0.15);
-      border: 1px solid rgba(46,185,240,0.3);
-      transition: all 0.3s;
-    }
-    .toggle-thumb {
-      background: var(--electric);
-      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-      box-shadow: 0 0 15px var(--electric-glow);
-    }
+    .toggle-track { background: rgba(46,185,240,0.15); border: 1px solid rgba(46,185,240,0.3); transition: all 0.3s; }
+    .toggle-thumb { background: var(--electric); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 0 15px var(--electric-glow); }
 
-    /* ── Badge ── */
     .pittsburgh-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: linear-gradient(135deg, rgba(46,185,240,0.15), rgba(46,185,240,0.05));
-      border: 1px solid rgba(46,185,240,0.4);
-      border-radius: 100px;
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-      color: var(--electric);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      border: 1px solid rgba(46,185,240,0.4); border-radius: 100px;
+      padding: 6px 14px; font-size: 0.75rem; font-family: 'Syne', sans-serif;
+      font-weight: 600; color: var(--electric); letter-spacing: 0.05em; text-transform: uppercase;
     }
 
-    /* ── Section Label ── */
     .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.7rem;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--electric);
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.7rem; font-family: 'Syne', sans-serif; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--electric);
     }
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--electric);
-    }
+    .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--electric); }
 
-    /* ── Divider ── */
-    .electric-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--electric), transparent);
-      opacity: 0.3;
-    }
+    .electric-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--electric), transparent); opacity: 0.3; }
 
-    /* ── Local Advantage ── */
     .advantage-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(13,20,32,0.5);
-      transition: all 0.3s;
+      display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem;
+      border-radius: 12px; border: 1px solid var(--border); background: rgba(13,20,32,0.5); transition: all 0.3s;
     }
     .advantage-item:hover { border-color: rgba(46,185,240,0.3); background: rgba(46,185,240,0.04); }
 
-    /* ── Contact Form ── */
     .form-input {
-      width: 100%;
-      background: rgba(13,20,32,0.8);
-      border: 1px solid rgba(46,185,240,0.2);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      border-radius: 10px;
-      padding: 0.875rem 1rem;
-      transition: all 0.3s;
-      outline: none;
+      width: 100%; background: rgba(13,20,32,0.8); border: 1px solid rgba(46,185,240,0.2);
+      color: var(--text); font-family: 'DM Sans', sans-serif; border-radius: 10px;
+      padding: 0.875rem 1rem; transition: all 0.3s; outline: none;
     }
     .form-input:focus { border-color: var(--electric); box-shadow: 0 0 0 3px var(--electric-glow); }
     .form-input::placeholder { color: var(--muted); }
 
-    /* ── Animations ── */
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fade-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    @keyframes pulse-ring {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(1.4); opacity: 0; }
-    }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
 
     .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.4,0,0.2,1) forwards; }
     .animate-fade-up-delay-1 { animation: fade-up 0.8s 0.15s cubic-bezier(0.4,0,0.2,1) both; }
@@ -315,7 +199,6 @@
       animation: shimmer 4s linear infinite;
     }
 
-    /* ── Organic Shape ── */
     .blob {
       position: absolute;
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
@@ -327,7 +210,6 @@
       66% { border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%; }
     }
 
-    /* ── Add-On Card ── */
     .addon-card {
       background: linear-gradient(135deg, rgba(17,24,39,0.8), rgba(13,20,32,0.8));
       border: 1px solid rgba(46,185,240,0.12);
@@ -336,31 +218,14 @@
     }
     .addon-card:hover { border-left-color: var(--electric); background: linear-gradient(135deg, rgba(46,185,240,0.06), rgba(13,20,32,0.8)); transform: translateX(4px); box-shadow: -4px 0 20px rgba(46,185,240,0.15); }
 
-    /* Mobile menu */
+    /* ── Mobile menu — hidden by default ── */
     #mobile-menu { display: none; }
-    #mobile-menu.open { display: block; }
 
-    /* Checklist */
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      padding: 4px 0;
-    }
+    .check-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #94a3b8; padding: 4px 0; }
     .check-icon { color: var(--electric); flex-shrink: 0; }
 
-    /* Stat card */
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 2.5rem;
-      color: white;
-      line-height: 1;
-    }
+    .stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.5rem; color: white; line-height: 1; }
 
-    /* Section spacing */
     section { position: relative; z-index: 1; }
 
     /* ── Force hamburger hidden on desktop ── */
@@ -369,134 +234,51 @@
       #mobile-menu { display: none !important; }
     }
 
-    /* ── Privacy / Terms Modal ── */
-    .legal-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .legal-modal.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .legal-modal-box {
-      background: #0d1420;
-      border: 1px solid rgba(46,185,240,0.25);
-      border-radius: 16px;
-      max-width: 680px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 2.5rem;
-      position: relative;
-    }
-    .legal-modal-box h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.75rem;
-      color: white;
-      margin-bottom: 0.5rem;
-    }
-    .legal-modal-box h3 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #2EB9F0;
-      margin: 1.4rem 0 0.4rem;
-    }
-    .legal-modal-box p, .legal-modal-box li {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
-    }
-    .legal-modal-box ul { padding-left: 1.25rem; }
-    .modal-close-btn {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      background: rgba(46,185,240,0.1);
-      border: 1px solid rgba(46,185,240,0.25);
-      border-radius: 8px;
-      color: #94a3b8;
-      cursor: pointer;
-      padding: 6px 10px;
-      font-size: 1.1rem;
-      line-height: 1;
-      transition: all 0.2s;
-    }
-    .modal-close-btn:hover { background: rgba(46,185,240,0.2); color: white; }
-
-    /* ── Nour N Logo Mark ── */
-    .nour-logo-mark {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .nour-logo-mark::before {
-      content: '';
-      position: absolute;
-      inset: -5px;
-      border-radius: 14px;
-      background: radial-gradient(circle at 50% 40%, rgba(46,185,240,0.35) 0%, rgba(46,185,240,0.08) 55%, transparent 75%);
-      filter: blur(6px);
-      animation: nour-breathe 3s ease-in-out infinite;
-    }
-    .nour-logo-mark::after {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 11px;
-      background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.18) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    @keyframes nour-breathe {
-      0%, 100% { opacity: 0.7; transform: scale(1); }
-      50%       { opacity: 1;   transform: scale(1.08); }
-    }
-    .nour-n-svg {
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 0 6px rgba(46,185,240,0.9)) drop-shadow(0 0 14px rgba(46,185,240,0.5));
-      transition: filter 0.3s;
-    }
-    a:hover .nour-n-svg {
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)) drop-shadow(0 0 20px rgba(46,185,240,0.9)) drop-shadow(0 0 40px rgba(46,185,240,0.4));
-    }
-    .nour-logo-mark-sm::before { inset: -3px; border-radius: 10px; filter: blur(4px); }
-
-    /* ── Rotating Headline spans ── */
+    /* ── Rotating headline ── */
     .rw-span {
       display: inline-block;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
+    /* ── Privacy / Terms Modal ── */
+    .legal-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .legal-modal.open { opacity: 1; pointer-events: auto; }
+    .legal-modal-box {
+      background: #0d1420; border: 1px solid rgba(46,185,240,0.25); border-radius: 16px;
+      max-width: 680px; width: 100%; max-height: 80vh; overflow-y: auto;
+      padding: 2.5rem; position: relative;
+    }
+    .legal-modal-box h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.75rem; color: white; margin-bottom: 0.5rem; }
+    .legal-modal-box h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: #2EB9F0; margin: 1.4rem 0 0.4rem; }
+    .legal-modal-box p, .legal-modal-box li { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: #94a3b8; line-height: 1.7; margin-bottom: 0.5rem; }
+    .legal-modal-box ul { padding-left: 1.25rem; }
+    .modal-close-btn {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: rgba(46,185,240,0.1); border: 1px solid rgba(46,185,240,0.25);
+      border-radius: 8px; color: #94a3b8; cursor: pointer; padding: 6px 10px;
+      font-size: 1.1rem; line-height: 1; transition: all 0.2s;
+    }
+    .modal-close-btn:hover { background: rgba(46,185,240,0.2); color: white; }
   </style>
 
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+<!-- ═══ NAV ═══ -->
 
 <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
 
 ```
-<!-- Logo -->
-<a href="#" class="flex items-center gap-3" style="text-decoration:none;">
-  <div class="nour-logo-mark w-9 h-9 rounded-xl" style="background: linear-gradient(145deg, #0d1e30 0%, #071520 100%); border: 1px solid rgba(46,185,240,0.35);">
-    <svg class="nour-n-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Logo — far left -->
+<a href="#" class="flex items-center gap-3" style="text-decoration:none; flex-shrink:0;">
+  <div class="w-9 h-9 rounded-xl" style="background: linear-gradient(145deg, #0d1e30 0%, #071520 100%); border: 1px solid rgba(46,185,240,0.35);">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="9" y="9" width="18" height="1.5" rx="0.75" fill="rgba(255,255,255,0.12)"/>
       <rect x="9.5" y="9" width="3" height="18" rx="1.2" fill="url(#nGradL)"/>
       <path d="M12.5 9.5 L23.5 26.5" stroke="url(#nGradD)" stroke-width="2.8" stroke-linecap="round"/>
@@ -522,22 +304,23 @@
 </a>
 
 <!-- Desktop Nav — far right -->
-<div class="hidden md:flex items-center gap-8 ml-auto">
+<div class="hidden md:flex items-center gap-8">
   <a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors font-body">Services</a>
   <a href="#pricing" class="text-sm text-slate-400 hover:text-white transition-colors font-body">Pricing</a>
   <a href="#local" class="text-sm text-slate-400 hover:text-white transition-colors font-body">About</a>
   <a href="#contact" class="btn-primary px-5 py-2.5 rounded-lg text-sm inline-block">Get a Quote</a>
 </div>
 
-<!-- Mobile Hamburger — pinned to top-right on mobile -->
+<!-- Mobile Hamburger — far right on mobile -->
 <button id="menu-toggle"
   class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl text-slate-300 hover:text-white transition-all"
-  style="background: rgba(13,20,32,0.8); border: 1px solid rgba(46,185,240,0.3); margin-right: 2px;"
-  aria-label="Toggle navigation">
-  <svg id="icon-menu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+  style="background: rgba(13,20,32,0.9); border: 1px solid rgba(46,185,240,0.4);"
+  aria-label="Toggle navigation"
+  type="button">
+  <svg id="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
     <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
   </svg>
-  <svg id="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;">
+  <svg id="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;">
     <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
   </svg>
 </button>
@@ -545,46 +328,44 @@
 
   </div>
 
-  <!-- Mobile Dropdown Menu -->
+  <!-- Mobile Dropdown -->
 
-  <div id="mobile-menu" class="border-t px-5 py-4 space-y-1" style="display:none; border-color:rgba(46,185,240,0.15); background:rgba(8,12,18,0.98); backdrop-filter:blur(20px);">
-    <a href="#services" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-      Services
-    </a>
-    <a href="#pricing" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      Pricing
-    </a>
-    <a href="#local" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      About Us
-    </a>
-    <a href="#contact" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Contact Us
-    </a>
-    <div class="pt-2 pb-1">
-      <a href="#contact" class="mobile-nav-link btn-primary w-full py-3 rounded-xl text-sm font-display font-700 flex items-center justify-center gap-2">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        Get a Free Quote
+  <div id="mobile-menu" style="display:none; border-top: 1px solid rgba(46,185,240,0.15); background:rgba(8,12,18,0.98); backdrop-filter:blur(20px);">
+    <div class="px-5 py-4 space-y-1">
+      <a href="#services" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Services
       </a>
+      <a href="#pricing" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Pricing
+      </a>
+      <a href="#local" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        About Us
+      </a>
+      <a href="#contact" class="mobile-nav-link flex items-center gap-3 text-slate-300 hover:text-white py-3 px-3 rounded-xl hover:bg-white/5 transition-all font-body text-base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Us
+      </a>
+      <div class="pt-2 pb-1">
+        <a href="#contact" class="mobile-nav-link btn-primary w-full py-3 rounded-xl text-sm font-display flex items-center justify-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Get a Free Quote
+        </a>
+      </div>
     </div>
+  </div>
 </nav>
 
-<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<!-- ═══ HERO ═══ -->
 
 <section class="min-h-screen flex items-center justify-center relative overflow-hidden grid-bg pt-20">
-  <!-- Orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-
-  <!-- Blob -->
-
   <div class="blob absolute w-96 h-96 opacity-5" style="background: var(--electric); bottom: -100px; right: -100px;"></div>
 
   <div class="max-w-7xl mx-auto px-6 py-32 text-center relative z-10">
-    <!-- Badge -->
     <div class="animate-fade-up mb-8 flex justify-center">
       <div class="pittsburgh-badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -593,8 +374,8 @@
     </div>
 
 ```
-<!-- Headline with rotating words -->
-<h1 id="hero-headline" class="animate-fade-up-delay-1 font-display font-800 text-white leading-tight mb-6" style="font-size: clamp(2.5rem, 6.5vw, 5.5rem); letter-spacing: -0.03em;">
+<!-- Headline with rotating words — SLOWER (7s interval, 0.6s fade) -->
+<h1 class="animate-fade-up-delay-1 font-display font-800 text-white leading-tight mb-6" style="font-size: clamp(2.5rem, 6.5vw, 5.5rem); letter-spacing: -0.03em;">
   We Build<br/>
   <span id="rw-adjective" class="text-gradient rw-span">High-Performance</span><br/>
   Websites For<br/>
@@ -606,7 +387,6 @@
   Custom-crafted digital experiences from Pittsburgh's premier web design studio. Fast, beautiful, and built to convert — starting at $699.
 </p>
 
-<!-- CTA Buttons -->
 <div class="animate-fade-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
   <a href="#services" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2 justify-center">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
@@ -618,7 +398,6 @@
   </a>
 </div>
 
-<!-- Stats -->
 <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto animate-fade-in">
   <div class="text-center p-4 rounded-xl" style="border: 1px solid var(--border); background: rgba(13,20,32,0.4);">
     <div class="stat-num" style="color: var(--electric);">50+</div>
@@ -641,8 +420,6 @@
 
   </div>
 
-  <!-- Scroll Indicator -->
-
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce" style="color: var(--electric);">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
@@ -650,7 +427,7 @@
 
 <div class="electric-divider"></div>
 
-<!-- ═══════════════════════════════════════ SERVICES ═══════════════════════════════════════ -->
+<!-- ═══ SERVICES ═══ -->
 
 <section id="services" class="py-28 relative">
   <div class="max-w-7xl mx-auto px-6">
@@ -665,7 +442,6 @@
 
 ```
 <div class="grid md:grid-cols-3 gap-6">
-  <!-- Card 1 -->
   <div class="service-card rounded-2xl p-8">
     <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(46,185,240,0.12); border: 1px solid rgba(46,185,240,0.2);">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
@@ -673,13 +449,12 @@
     <h3 class="font-display font-700 text-white text-2xl mb-3">Custom Web Design</h3>
     <p class="text-slate-400 font-body leading-relaxed mb-6">Hand-crafted websites built from scratch — no templates, no shortcuts. Pixel-perfect designs that reflect your brand and convert visitors.</p>
     <ul class="space-y-2">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Mobile-first responsive design</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Lightning-fast load times</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Conversion-optimized layouts</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mobile-first responsive design</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lightning-fast load times</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conversion-optimized layouts</li>
     </ul>
   </div>
 
-  <!-- Card 2 -->
   <div class="service-card rounded-2xl p-8">
     <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(46,185,240,0.12); border: 1px solid rgba(46,185,240,0.2);">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -687,13 +462,12 @@
     <h3 class="font-display font-700 text-white text-2xl mb-3">Hosting & Maintenance</h3>
     <p class="text-slate-400 font-body leading-relaxed mb-6">We handle every technical detail so you never have to worry. Secure, fast, and always-online hosting with proactive maintenance.</p>
     <ul class="space-y-2">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Free SSL Certificate</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>24/7 uptime monitoring</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Daily backups & security patches</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Free SSL Certificate</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>24/7 uptime monitoring</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Daily backups & security patches</li>
     </ul>
   </div>
 
-  <!-- Card 3 -->
   <div class="service-card rounded-2xl p-8">
     <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(46,185,240,0.12); border: 1px solid rgba(46,185,240,0.2);">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -701,9 +475,9 @@
     <h3 class="font-display font-700 text-white text-2xl mb-3">SEO & Google Business</h3>
     <p class="text-slate-400 font-body leading-relaxed mb-6">Dominate local search results. We optimize your site and Google Business Profile to put you in front of Pittsburgh customers actively looking for you.</p>
     <ul class="space-y-2">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Google Business Profile setup</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Local keyword targeting</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Monthly SEO health reports</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Business Profile setup</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Local keyword targeting</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly SEO health reports</li>
     </ul>
   </div>
 </div>
@@ -714,29 +488,26 @@
 
 <div class="electric-divider"></div>
 
-<!-- ═══════════════════════════════════════ PRICING ═══════════════════════════════════════ -->
+<!-- ═══ PRICING ═══ -->
 
 <section id="pricing" class="py-28 relative overflow-hidden">
   <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(46,185,240,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
 
   <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-6">
+      <div class="section-label mb-4 justify-center">Transparent Pricing</div>
+      <h2 class="font-display font-800 text-white text-4xl md:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        No Hidden Fees.<br/><span style="color: var(--electric);">Just Honest Work.</span>
+      </h2>
+      <div class="flex justify-center mt-4">
+        <div class="pittsburgh-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Pittsburgh Local — Carnegie, PA
+        </div>
+      </div>
+    </div>
 
 ```
-<!-- Header -->
-<div class="text-center mb-6">
-  <div class="section-label mb-4 justify-center">Transparent Pricing</div>
-  <h2 class="font-display font-800 text-white text-4xl md:text-5xl mb-4" style="letter-spacing:-0.02em;">
-    No Hidden Fees.<br/><span style="color: var(--electric);">Just Honest Work.</span>
-  </h2>
-  <div class="flex justify-center mt-4">
-    <div class="pittsburgh-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Pittsburgh Local — Carnegie, PA
-    </div>
-  </div>
-</div>
-
-<!-- ── SECTION 1: ONE-TIME BUILD ── -->
 <div class="mt-16 mb-4">
   <div class="section-label mb-2">Step 1 — Choose Your Build</div>
   <h3 class="font-display text-white text-3xl font-700 mb-2">One-Time Website Builds</h3>
@@ -744,7 +515,6 @@
 </div>
 
 <div class="grid md:grid-cols-3 gap-6 mb-20">
-  <!-- Essential -->
   <div class="glass-card rounded-2xl p-8">
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">The Essential</div>
@@ -755,23 +525,18 @@
       <p class="text-slate-400 text-sm font-body mt-2">Perfect for local businesses getting online fast.</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Single-page landing site</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Mobile-responsive design</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Contact form included</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">24-hour launch guarantee</strong></li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Google Analytics setup</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Single-page landing site</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mobile-responsive design</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Contact form included</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">24-hour launch guarantee</strong></li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Analytics setup</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-link-essential" target="_blank" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Get Started — $699
-    </a>
+    <a href="#contact" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Get Started — $699</a>
   </div>
 
-  <!-- Growth (Featured) -->
   <div class="glass-card featured rounded-2xl p-8 relative" style="border-top: 2px solid var(--electric);">
     <div class="flex justify-center mb-5">
-      <div class="pittsburgh-badge" style="background: var(--electric); color: #080c12; border-color: var(--electric); white-space: nowrap;">
-        ⭐ Most Popular
-      </div>
+      <div class="pittsburgh-badge" style="background: var(--electric); color: #080c12; border-color: var(--electric); white-space: nowrap;">⭐ Most Popular</div>
     </div>
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">The Growth</div>
@@ -782,19 +547,16 @@
       <p class="text-slate-400 text-sm font-body mt-2">For serious local businesses ready to grow.</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">Up to 5 pages</strong></li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Custom SEO setup & metadata</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Google Business integration</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Professional copywriting</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Contact & quote forms</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Schema markup for local SEO</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">Up to 5 pages</strong></li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom SEO setup & metadata</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Business integration</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professional copywriting</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Contact & quote forms</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Schema markup for local SEO</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-link-growth" target="_blank" class="btn-primary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Get Started — $1,199
-    </a>
+    <a href="#contact" class="btn-primary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Get Started — $1,199</a>
   </div>
 
-  <!-- Custom -->
   <div class="glass-card rounded-2xl p-8">
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">The Custom</div>
@@ -804,30 +566,25 @@
       <p class="text-slate-400 text-sm font-body mt-2">Full-scale solutions engineered for your goals.</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Full e-commerce store</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Custom web applications</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Advanced API integrations</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Custom booking/CRM logic</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Priority development timeline</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full e-commerce store</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom web applications</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Advanced API integrations</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom booking/CRM logic</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority development timeline</li>
     </ul>
-    <a href="#contact" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Get a Quote
-    </a>
+    <a href="#contact" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Get a Quote</a>
   </div>
 </div>
 
 <div class="electric-divider mb-20"></div>
 
-<!-- ── SECTION 2: MONTHLY MAINTENANCE ── -->
 <div class="mb-4">
   <div class="section-label mb-2">Step 2 — Keep It Running</div>
   <h3 class="font-display text-white text-3xl font-700 mb-2">Monthly Maintenance Plans</h3>
   <p class="text-slate-400 font-body mb-6">Hosting, security, SSL, and updates — handled every month. Cancel anytime.</p>
-
-  <!-- Monthly/Yearly Toggle -->
   <div class="flex items-center gap-4">
     <span id="label-monthly" class="font-display text-sm font-600" style="color: var(--electric);">Monthly</span>
-    <div class="toggle-track w-14 h-7 rounded-full relative cursor-pointer flex items-center px-1" onclick="togglePricing()" id="toggle-track">
+    <div class="toggle-track w-14 h-7 rounded-full relative cursor-pointer flex items-center px-1" id="toggle-track">
       <div class="toggle-thumb w-5 h-5 rounded-full" id="toggle-thumb"></div>
     </div>
     <span id="label-yearly" class="font-display text-sm font-600 text-slate-400">Yearly <span class="text-xs" style="color: var(--electric);">(Save 20%)</span></span>
@@ -835,7 +592,6 @@
 </div>
 
 <div class="grid md:grid-cols-3 gap-6 mb-20">
-  <!-- Basic -->
   <div class="glass-card rounded-2xl p-8">
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">Basic Maintenance</div>
@@ -846,22 +602,17 @@
       <p class="text-slate-400 text-xs font-body mt-1 hidden" id="yearly-basic">Billed $470/year — save $118</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Secure managed hosting</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Free SSL certificate</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Monthly security updates</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Daily automated backups</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Secure managed hosting</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Free SSL certificate</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly security updates</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Daily automated backups</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-basic-monthly" target="_blank" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscribe
-    </a>
+    <a href="#contact" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Subscribe</a>
   </div>
 
-  <!-- Pro (Featured) -->
   <div class="glass-card featured rounded-2xl p-8 relative" style="border-top: 2px solid var(--electric);">
     <div class="flex justify-center mb-5">
-      <div class="pittsburgh-badge" style="background: var(--electric); color: #080c12; border-color: var(--electric); white-space: nowrap;">
-        Best Value
-      </div>
+      <div class="pittsburgh-badge" style="background: var(--electric); color: #080c12; border-color: var(--electric); white-space: nowrap;">Best Value</div>
     </div>
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">Pro Maintenance</div>
@@ -872,18 +623,15 @@
       <p class="text-slate-400 text-xs font-body mt-1 hidden" id="yearly-pro">Billed $950/year — save $238</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Everything in Basic</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">2 hrs/mo content updates</strong></li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Priority support (24hr response)</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Performance optimization</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Plugin & platform updates</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Basic</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">2 hrs/mo content updates</strong></li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority support (24hr response)</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Performance optimization</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Plugin & platform updates</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-pro-monthly" target="_blank" class="btn-primary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscribe
-    </a>
+    <a href="#contact" class="btn-primary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Subscribe</a>
   </div>
 
-  <!-- Ultimate -->
   <div class="glass-card rounded-2xl p-8">
     <div class="mb-6">
       <div class="text-xs font-display font-700 tracking-widest uppercase mb-2" style="color: var(--electric);">Ultimate Maintenance</div>
@@ -894,33 +642,29 @@
       <p class="text-slate-400 text-xs font-body mt-1 hidden" id="yearly-ultimate">Billed $1,430/year — save $358</p>
     </div>
     <ul class="space-y-2.5 mb-8">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Everything in Pro</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">Unlimited small updates</strong></li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Monthly SEO health reports</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>24/7 uptime monitoring</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Quarterly strategy call</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Pro</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white">Unlimited small updates</strong></li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly SEO health reports</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>24/7 uptime monitoring</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Quarterly strategy call</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-ultimate-monthly" target="_blank" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscribe
-    </a>
+    <a href="#contact" class="btn-secondary w-full py-3 rounded-xl text-sm font-display font-700 inline-flex items-center justify-center gap-2">Subscribe</a>
   </div>
 </div>
 
 <div class="electric-divider mb-20"></div>
 
-<!-- ── SECTION 3: ADD-ONS ── -->
 <div class="mb-8">
   <div class="section-label mb-2">Creative Add-Ons</div>
   <h3 class="font-display text-white text-3xl font-700 mb-2">Graphic Design & Branding</h3>
-  <p class="text-slate-400 font-body">Standalone creative services or bundled with your site build. Stand out in every pixel.</p>
+  <p class="text-slate-400 font-body">Standalone creative services or bundled with your site build.</p>
 </div>
 
 <div class="grid md:grid-cols-3 gap-5">
-  <!-- Logo Design -->
   <div class="addon-card rounded-xl p-7">
     <div class="flex items-start gap-4 mb-5">
       <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(46,185,240,0.1); border: 1px solid rgba(46,185,240,0.25);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg>
       </div>
       <div>
         <div class="font-display text-white text-xl font-700">Logo Design</div>
@@ -928,18 +672,15 @@
       </div>
     </div>
     <ul class="space-y-2 mb-5">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>3 unique initial concepts</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Professional vector files (SVG/AI)</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Full ownership & rights transfer</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>2 rounds of revisions</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 unique initial concepts</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professional vector files (SVG/AI)</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full ownership & rights transfer</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 rounds of revisions</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-logo" target="_blank" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Order Now — $299
-    </a>
+    <a href="#contact" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">Order Now — $299</a>
   </div>
 
-  <!-- Identity Pack -->
-  <div class="addon-card rounded-xl p-7" style="border-left-color: #38bdf8; border-left-width: 3px;">
+  <div class="addon-card rounded-xl p-7">
     <div class="flex items-start gap-4 mb-5">
       <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(46,185,240,0.1); border: 1px solid rgba(46,185,240,0.25);">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -950,17 +691,14 @@
       </div>
     </div>
     <ul class="space-y-2 mb-5">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Everything in Logo Design</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Business card design (print-ready)</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Letterhead & envelope design</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Brand color & font guide</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Logo Design</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Business card design (print-ready)</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Letterhead & envelope design</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Brand color & font guide</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-identity" target="_blank" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Order Now — $499
-    </a>
+    <a href="#contact" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">Order Now — $499</a>
   </div>
 
-  <!-- Digital Ad Pack -->
   <div class="addon-card rounded-xl p-7">
     <div class="flex items-start gap-4 mb-5">
       <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(46,185,240,0.1); border: 1px solid rgba(46,185,240,0.25);">
@@ -972,14 +710,12 @@
       </div>
     </div>
     <ul class="space-y-2 mb-5">
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>5 high-converting ad graphics</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>TikTok, Facebook & Instagram sizes</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Google Display Ad formats</li>
-      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Editable source files delivered</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>5 high-converting ad graphics</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>TikTok, Facebook & Instagram sizes</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Display Ad formats</li>
+      <li class="check-item"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Editable source files delivered</li>
     </ul>
-    <a href="https://buy.stripe.com/your-stripe-adpack" target="_blank" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Order Now — $199
-    </a>
+    <a href="#contact" class="btn-primary w-full py-2.5 rounded-lg text-sm font-display font-700 inline-flex items-center justify-center gap-2">Order Now — $199</a>
   </div>
 </div>
 ```
@@ -989,14 +725,12 @@
 
 <div class="electric-divider"></div>
 
-<!-- ═══════════════════════════════════════ LOCAL ADVANTAGE ═══════════════════════════════════════ -->
+<!-- ═══ LOCAL ADVANTAGE ═══ -->
 
 <section id="local" class="py-28 relative overflow-hidden">
   <div class="blob absolute w-80 h-80 opacity-5 -left-20 top-1/2" style="background: var(--electric);"></div>
-
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-2 gap-16 items-center">
-      <!-- Left -->
       <div>
         <div class="pittsburgh-badge mb-6">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1012,12 +746,12 @@
           When you hire Nour Digital, you get a dedicated local partner who picks up the phone, shows up when needed, and treats your business like their own.
         </p>
         <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-sm inline-flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.69 19.79 19.79 0 0 1 1.61 1 2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Talk to a Local Expert
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.69 19.79 19.79 0 0 1 1.61 1 2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Talk to a Local Expert
         </a>
       </div>
 
 ```
-  <!-- Right: Advantages -->
   <div class="space-y-4">
     <div class="advantage-item rounded-xl">
       <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(46,185,240,0.1);">
@@ -1030,7 +764,7 @@
     </div>
     <div class="advantage-item rounded-xl">
       <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(46,185,240,0.1);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.69 19.79 19.79 0 0 1 1.61 1 2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>
       </div>
       <div>
         <h4 class="font-display text-white font-700 text-lg mb-1">Real People, Real Support</h4>
@@ -1064,30 +798,28 @@
 
 <div class="electric-divider"></div>
 
-<!-- ═══════════════════════════════════════ CONTACT / FOOTER ═══════════════════════════════════════ -->
+<!-- ═══ CONTACT / FOOTER ═══ -->
 
 <footer id="contact" class="pt-28 pb-12 relative" style="background: rgba(5,8,14,0.95);">
   <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 mb-20">
+      <div>
+        <div class="section-label mb-4">Get In Touch</div>
+        <h2 class="font-display font-800 text-white text-4xl md:text-5xl mb-4" style="letter-spacing:-0.02em;">
+          Ready to Build<br/>
+          <span style="color: var(--electric);">Something Great?</span>
+        </h2>
+        <p class="text-slate-400 font-body text-lg leading-relaxed mb-8">
+          Let's talk about your project. We'll respond within one business day — usually much faster.
+        </p>
 
 ```
-<div class="grid md:grid-cols-2 gap-16 mb-20">
-  <!-- Left: Contact Info -->
-  <div>
-    <div class="section-label mb-4">Get In Touch</div>
-    <h2 class="font-display font-800 text-white text-4xl md:text-5xl mb-4" style="letter-spacing:-0.02em;">
-      Ready to Build<br/>
-      <span style="color: var(--electric);">Something Great?</span>
-    </h2>
-    <p class="text-slate-400 font-body text-lg leading-relaxed mb-8">
-      Let's talk about your project. We'll respond within one business day — usually much faster.
-    </p>
-
     <div class="space-y-4">
-      <a href="/cdn-cgi/l/email-protection#7018151c1c1f301e1f05021419171904111c5e131f1d" class="flex items-center gap-3 text-slate-300 hover:text-white transition-colors font-body">
+      <a href="mailto:hello@nourdigital.com" class="flex items-center gap-3 text-slate-300 hover:text-white transition-colors font-body">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(46,185,240,0.1); border: 1px solid var(--border);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EB9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-        <span class="__cf_email__" data-cfemail="6a020f0606052a04051f180e030d031e0b0644090507">[email&#160;protected]</span>
+        hello@nourdigital.com
       </a>
       <a href="tel:+14125550123" class="flex items-center gap-3 text-slate-300 hover:text-white transition-colors font-body">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(46,185,240,0.1); border: 1px solid var(--border);">
@@ -1103,7 +835,6 @@
       </div>
     </div>
 
-    <!-- Social Links — Instagram, Facebook, TikTok only -->
     <div class="flex gap-3 mt-8">
       <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all" style="border: 1px solid var(--border);">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -1112,14 +843,13 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
       <a href="#" aria-label="TikTok" class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all" style="border: 1px solid var(--border);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.2 8.2 0 0 0 4.79 1.53V6.78a4.85 4.85 0 0 1-1.02-.09z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.2 8.2 0 0 0 4.79 1.53V6.78a4.85 4.85 0 0 1-1.02-.09z"/></svg>
       </a>
     </div>
   </div>
 
-  <!-- Right: Contact Form -->
   <div>
-    <form onsubmit="handleSubmit(event)" class="space-y-4">
+    <form id="contact-form" class="space-y-4">
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block text-sm text-slate-400 font-body mb-1.5">First Name</label>
@@ -1166,11 +896,10 @@
 
 <div class="electric-divider mb-8"></div>
 
-<!-- Footer Bottom -->
 <div class="flex flex-col md:flex-row items-center justify-between gap-4">
   <div class="flex items-center gap-2">
-    <div class="nour-logo-mark nour-logo-mark-sm w-7 h-7 rounded-lg" style="background: linear-gradient(145deg, #0d1e30 0%, #071520 100%); border: 1px solid rgba(46,185,240,0.35);">
-      <svg class="nour-n-svg" width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="w-7 h-7 rounded-lg" style="background: linear-gradient(145deg, #0d1e30 0%, #071520 100%); border: 1px solid rgba(46,185,240,0.35);">
+      <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="9.5" y="9" width="3" height="18" rx="1.2" fill="url(#nGradLF)"/>
         <path d="M12.5 9.5 L23.5 26.5" stroke="url(#nGradDF)" stroke-width="2.8" stroke-linecap="round"/>
         <rect x="23.5" y="9" width="3" height="18" rx="1.2" fill="url(#nGradRF)"/>
@@ -1196,8 +925,8 @@
   </div>
   <p class="text-slate-600 text-sm font-body">© 2026 Nour Digital. All rights reserved. · Pittsburgh's Premier Web Studio.</p>
   <div class="flex gap-6">
-    <a href="#" onclick="openModal('privacy-modal'); return false;" class="text-slate-600 hover:text-slate-400 text-sm font-body transition-colors">Privacy</a>
-    <a href="#" onclick="openModal('terms-modal'); return false;" class="text-slate-600 hover:text-slate-400 text-sm font-body transition-colors">Terms</a>
+    <button onclick="openModal('privacy-modal')" class="text-slate-600 hover:text-slate-400 text-sm font-body transition-colors" style="background:none;border:none;cursor:pointer;padding:0;">Privacy</button>
+    <button onclick="openModal('terms-modal')" class="text-slate-600 hover:text-slate-400 text-sm font-body transition-colors" style="background:none;border:none;cursor:pointer;padding:0;">Terms</button>
     <a href="#" class="text-slate-600 hover:text-slate-400 text-sm font-body transition-colors">Sitemap</a>
   </div>
 </div>
@@ -1206,7 +935,7 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════ PRIVACY MODAL ═══════════════════════════════════════ -->
+<!-- ═══ PRIVACY MODAL ═══ -->
 
 <div id="privacy-modal" class="legal-modal" onclick="if(event.target===this) closeModal('privacy-modal')">
   <div class="legal-modal-box">
@@ -1227,15 +956,15 @@
     <h3>4. Third-Party Services</h3>
     <p>We use Stripe for payment processing. Their privacy practices are governed by Stripe's own Privacy Policy. We may use Google Analytics to understand site traffic — this data is anonymized and aggregated.</p>
     <h3>5. Your Rights</h3>
-    <p>You may request access to, correction of, or deletion of your personal data at any time by contacting us at <span style="color:#2EB9F0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4c24292020230c2223393e28252b25382d20622f2321">[email&#160;protected]</a></span>. We will respond within 30 days.</p>
+    <p>You may request access to, correction of, or deletion of your personal data at any time by contacting us at <span style="color:#2EB9F0">hello@nourdigital.com</span>. We will respond within 30 days.</p>
     <h3>6. Cookies</h3>
     <p>Our website may use essential cookies to function properly. No tracking or advertising cookies are used without your consent.</p>
     <h3>7. Contact Us</h3>
-    <p>Questions about this policy? Reach us at <span style="color:#2EB9F0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4129242d2d2e012f2e34332528262835202d6f222e2c">[email&#160;protected]</a></span> or (412) 555-0123. We're happy to help.</p>
+    <p>Questions about this policy? Reach us at <span style="color:#2EB9F0">hello@nourdigital.com</span> or (412) 555-0123. We're happy to help.</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════ TERMS MODAL ═══════════════════════════════════════ -->
+<!-- ═══ TERMS MODAL ═══ -->
 
 <div id="terms-modal" class="legal-modal" onclick="if(event.target===this) closeModal('terms-modal')">
   <div class="legal-modal-box">
@@ -1260,139 +989,181 @@
     <h3>6. Limitation of Liability</h3>
     <p>Nour Digital shall not be liable for indirect, incidental, or consequential damages. Our total liability shall not exceed the amount paid for the specific service in the prior 3 months.</p>
     <h3>7. Contact</h3>
-    <p>For questions about these terms, contact us at <span style="color:#2EB9F0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97fff2fbfbf8d7f9f8e2e5f3fef0fee3f6fbb9f4f8fa">[email&#160;protected]</a></span> or (412) 555-0123.</p>
+    <p>For questions about these terms, contact us at <span style="color:#2EB9F0">hello@nourdigital.com</span> or (412) 555-0123.</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════ SCRIPTS ═══════════════════════════════════════ -->
+<!-- ═══ SCRIPTS ═══ -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-document.addEventListener(‘DOMContentLoaded’, function () {
+  // ── Mobile Menu Toggle ──
+  var menuToggle = document.getElementById('menu-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var iconMenu   = document.getElementById('icon-menu');
+  var iconClose  = document.getElementById('icon-close');
+  var menuOpen   = false;
 
-// ── Mobile Menu Toggle ──
-var menuToggle = document.getElementById(‘menu-toggle’);
-var mobileMenu = document.getElementById(‘mobile-menu’);
-var iconMenu   = document.getElementById(‘icon-menu’);
-var iconClose  = document.getElementById(‘icon-close’);
-var menuOpen   = false;
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      menuOpen = !menuOpen;
+      mobileMenu.style.display = menuOpen ? 'block' : 'none';
+      iconMenu.style.display   = menuOpen ? 'none'  : 'block';
+      iconClose.style.display  = menuOpen ? 'block' : 'none';
+    });
+  }
 
-if (menuToggle && mobileMenu) {
-menuToggle.addEventListener(‘click’, function (e) {
-e.stopPropagation();
-menuOpen = !menuOpen;
-mobileMenu.style.display = menuOpen ? ‘block’ : ‘none’;
-if (iconMenu)  iconMenu.style.display  = menuOpen ? ‘none’  : ‘block’;
-if (iconClose) iconClose.style.display = menuOpen ? ‘block’ : ‘none’;
+  // Close menu when a mobile link is tapped
+  document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menuOpen = false;
+      mobileMenu.style.display = 'none';
+      iconMenu.style.display   = 'block';
+      iconClose.style.display  = 'none';
+    });
+  });
+
+  // Close menu when tapping outside
+  document.addEventListener('click', function (e) {
+    if (menuOpen && !mobileMenu.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
+      menuOpen = false;
+      mobileMenu.style.display = 'none';
+      iconMenu.style.display   = 'block';
+      iconClose.style.display  = 'none';
+    }
+  });
+
+  // ── Rotating Headline — SLOW (7s per word, 0.6s crossfade) ──
+  var groups = [
+    { id: 'rw-adjective', words: ['High-Performance', 'Conversion-Ready', 'Stunning', 'Future-Proof'] },
+    { id: 'rw-who',       words: ['Local Businesses', 'Restaurants & Shops', 'Service Companies', 'Pittsburgh Brands'] },
+    { id: 'rw-result',    words: ['Win.', 'Convert.', 'Dominate.', 'Grow.'] }
+  ];
+
+  function rotateEl(el, words) {
+    var idx = 0;
+    setInterval(function () {
+      // Fade out + slide up
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.opacity    = '0';
+      el.style.transform  = 'translateY(-12px)';
+      setTimeout(function () {
+        idx = (idx + 1) % words.length;
+        el.textContent     = words[idx];
+        el.style.transition = 'none';
+        el.style.transform  = 'translateY(12px)';
+        // Force reflow then fade in
+        void el.offsetHeight;
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      }, 600);
+    }, 7000); // 7 seconds per word — readable and comfortable
+  }
+
+  groups.forEach(function (g, i) {
+    var el = document.getElementById(g.id);
+    if (!el) return;
+    // Stagger starts so the three words don't all flip at the same moment
+    setTimeout(function () { rotateEl(el, g.words); }, i * 2000);
+  });
+
+  // ── Pricing Toggle ──
+  var toggleTrack = document.getElementById('toggle-track');
+  var isYearly    = false;
+  if (toggleTrack) {
+    toggleTrack.addEventListener('click', function () {
+      isYearly = !isYearly;
+      var thumb        = document.getElementById('toggle-thumb');
+      var labelMonthly = document.getElementById('label-monthly');
+      var labelYearly  = document.getElementById('label-yearly');
+      if (isYearly) {
+        if (thumb)        thumb.style.transform    = 'translateX(28px)';
+        if (labelMonthly) labelMonthly.style.color = '#64748b';
+        if (labelYearly)  labelYearly.style.color  = '#2EB9F0';
+        document.getElementById('price-basic').textContent    = '$39';
+        document.getElementById('price-pro').textContent      = '$79';
+        document.getElementById('price-ultimate').textContent = '$119';
+        document.getElementById('yearly-basic').classList.remove('hidden');
+        document.getElementById('yearly-pro').classList.remove('hidden');
+        document.getElementById('yearly-ultimate').classList.remove('hidden');
+      } else {
+        if (thumb)        thumb.style.transform    = 'translateX(0)';
+        if (labelMonthly) labelMonthly.style.color = '#2EB9F0';
+        if (labelYearly)  labelYearly.style.color  = '#64748b';
+        document.getElementById('price-basic').textContent    = '$49';
+        document.getElementById('price-pro').textContent      = '$99';
+        document.getElementById('price-ultimate').textContent = '$149';
+        document.getElementById('yearly-basic').classList.add('hidden');
+        document.getElementById('yearly-pro').classList.add('hidden');
+        document.getElementById('yearly-ultimate').classList.add('hidden');
+      }
+    });
+  }
+
+  // ── Contact Form ──
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var success = document.getElementById('form-success');
+      if (success) {
+        success.classList.remove('hidden');
+        contactForm.reset();
+        setTimeout(function () { success.classList.add('hidden'); }, 5000);
+      }
+    });
+  }
+
+  // ── Scroll Animations ──
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity   = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.service-card, .glass-card, .addon-card, .advantage-item').forEach(function (el) {
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+    observer.observe(el);
+  });
+
 });
+
+// ── Modal helpers — global so inline onclick works ──
+function openModal(id) {
+  var modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 }
-document.querySelectorAll(’.mobile-nav-link’).forEach(function (link) {
-link.addEventListener(‘click’, function () {
-menuOpen = false;
-if (mobileMenu) mobileMenu.style.display = ‘none’;
-if (iconMenu)   iconMenu.style.display   = ‘block’;
-if (iconClose)  iconClose.style.display  = ‘none’;
-});
-});
 
-// ── Rotating Headline ──
-var groups = [
-{ id: ‘rw-adjective’, words: [‘High-Performance’,‘Conversion-Ready’,‘Stunning’,‘Future-Proof’] },
-{ id: ‘rw-who’,       words: [‘Local Businesses’,‘Restaurants & Shops’,‘Service Companies’,‘Pittsburgh Brands’] },
-{ id: ‘rw-result’,    words: [‘Win.’,‘Convert.’,‘Dominate.’,‘Grow.’] }
-];
-
-function rotateEl(el, words) {
-var idx = 0;
-setInterval(function () {
-// Fade out
-el.style.transition = ‘opacity 0.45s ease, transform 0.45s ease’;
-el.style.opacity    = ‘0’;
-el.style.transform  = ‘translateY(-10px)’;
-setTimeout(function () {
-idx = (idx + 1) % words.length;
-el.textContent  = words[idx];
-el.style.transform = ‘translateY(10px)’;
-// Fade in
-requestAnimationFrame(function () {
-requestAnimationFrame(function () {
-el.style.opacity   = ‘1’;
-el.style.transform = ‘translateY(0)’;
-});
-});
-}, 450);
-}, 4500);
+function closeModal(id) {
+  var modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 }
 
-groups.forEach(function (g, i) {
-var el = document.getElementById(g.id);
-if (!el) return;
-// Stagger start times so all three don’t flip simultaneously
-setTimeout(function () { rotateEl(el, g.words); }, i * 850);
+// Close modals on Escape key
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.legal-modal.open').forEach(function (m) {
+      m.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
 });
+</script>
 
-// ── Pricing Toggle ──
-var toggleTrack = document.getElementById(‘toggle-track’);
-var isYearly    = false;
-if (toggleTrack) {
-toggleTrack.addEventListener(‘click’, function () {
-isYearly = !isYearly;
-var thumb        = document.getElementById(‘toggle-thumb’);
-var labelMonthly = document.getElementById(‘label-monthly’);
-var labelYearly  = document.getElementById(‘label-yearly’);
-if (isYearly) {
-if (thumb)        thumb.style.transform    = ‘translateX(28px)’;
-if (labelMonthly) labelMonthly.style.color = ‘#64748b’;
-if (labelYearly)  labelYearly.style.color  = ‘#2EB9F0’;
-document.getElementById(‘price-basic’).textContent    = ‘$39’;
-document.getElementById(‘price-pro’).textContent      = ‘$79’;
-document.getElementById(‘price-ultimate’).textContent = ‘$119’;
-document.getElementById(‘yearly-basic’).classList.remove(‘hidden’);
-document.getElementById(‘yearly-pro’).classList.remove(‘hidden’);
-document.getElementById(‘yearly-ultimate’).classList.remove(‘hidden’);
-} else {
-if (thumb)        thumb.style.transform    = ‘translateX(0)’;
-if (labelMonthly) labelMonthly.style.color = ‘#2EB9F0’;
-if (labelYearly)  labelYearly.style.color  = ‘#64748b’;
-document.getElementById(‘price-basic’).textContent    = ‘$49’;
-document.getElementById(‘price-pro’).textContent      = ‘$99’;
-document.getElementById(‘price-ultimate’).textContent = ‘$149’;
-document.getElementById(‘yearly-basic’).classList.add(‘hidden’);
-document.getElementById(‘yearly-pro’).classList.add(‘hidden’);
-document.getElementById(‘yearly-ultimate’).classList.add(‘hidden’);
-}
-});
-}
-
-// ── Form Submit ──
-window.handleSubmit = function (e) {
-e.preventDefault();
-var success = document.getElementById(‘form-success’);
-if (success) {
-success.classList.remove(‘hidden’);
-e.target.reset();
-setTimeout(function () { success.classList.add(‘hidden’); }, 5000);
-}
-};
-
-// ── Scroll Animations ──
-var observer = new IntersectionObserver(function (entries) {
-entries.forEach(function (entry) {
-if (entry.isIntersecting) {
-entry.target.style.opacity   = ‘1’;
-entry.target.style.transform = ‘translateY(0)’;
-}
-});
-}, { threshold: 0.08 });
-
-document.querySelectorAll(’.service-card, .glass-card, .addon-card, .advantage-item’).forEach(function (el) {
-el.style.opacity    = ‘0’;
-el.style.transform  = ‘translateY(24px)’;
-el.style.transition = ‘opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)’;
-observer.observe(el);
-});
-
-});
-
-// ── Modal helpers (global so inline onclick works) ──
-f
+</body>
+</html>
