@@ -838,15 +838,18 @@
       </select>
     </div>
     <div>
-      <label class="block text-sm text-slate-400 font-body mb-1.5">Tell Us About Your Project</label>
-      <textarea name="project_details" class="form-input resize-none" rows="4" placeholder="Describe your business, your goals, and any specific requirements..."></textarea>
+<label class="block text-sm text-slate-400 font-body mb-1.5">Tell Us About Your Project</label>
+      <textarea name="project_details" class="form-input resize-none" rows="4" placeholder="Describe your business goals..."></textarea>
     </div>
-    <button type="submit" class="btn-primary w-full py-4 rounded-xl font-display font-700 text-base inline-flex items-center justify-center gap-2">
+
+    <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-xl font-display font-700 text-base inline-flex items-center justify-center gap-2">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      Send Message — We'll Reply Today
-          </button>
-        </form>
-    </div>
+      <span id="btn-text">Send Message — We'll Reply Today</span>
+    </button>
+    
+    <p id="form-success" class="hidden text-center font-body text-sm mt-4" style="color: #00ffcc;">✓ Message sent! We'll be in touch soon.</p>
+  </form>
+</div>
 
     <div class="electric-divider mb-8"></div>
 
